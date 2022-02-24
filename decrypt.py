@@ -1,21 +1,3 @@
-"""import onetimepad
-
-msg = open("cifrado.txt", "r")
-text = msg.read()
-msg.close()
-print("MENSAJE A DESCIFRAR: ")
-print(text)
-
-key = open("key.txt", "r")
-llave = key.read()
-key.close()
-print("LLAVE ")
-print(llave)
-
-msg = onetimepad.decrypt(text, llave)
-print("Mensaje descifrado es: ")
-print(msg)"""
-
 import random
 
 def generate_key_stream(n):
@@ -26,15 +8,21 @@ def xor_bytes(key_stream, message):
     return bytes([key_stream[i]^ message[i] for i in range(length)])
 
 # this is done by your enemy
-msg = open("cifrado.txt", "r")
+msg = open("cifrado.txt", "rb")
 message = msg.read()
-message =  bytes(message, 'utf-8')
+#message =  bytes(message, 'utf-8')
+print("Mensaje cifrado: ")
+print(message)
+print("*"*50)
 msg.close()
 #print(message)
 
-k = open("key.txt", "r")
+print("Llave: ")
+k = open("key.txt", "rb")
 key = k.read()
-key = bytes(key, 'utf-8')
+#key = bytes(key, 'utf-8')
+print(key)
+print("*"*50)
 #print(key)
 k.close()
 
